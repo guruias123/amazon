@@ -1,12 +1,13 @@
 const express = require('express')
 const app = express();
-const port = 8700;
+const port =process.env.PORT || 8700;
 const mongo = require('mongodb');
 const MongoClient = mongo.MongoClient;
 const bodyParser = require('body-parser');
 const cors = require('cors');
 //mongodb+srv://venky:venky123@cluster0.bxnfz.mongodb.net/amazon?retryWrites=true&w=majority
-const mongourl = "mongodb://localhost:27017";
+// mongodb://localhost:27017
+const mongourl = "mongodb+srv://venky:venky123@cluster0.bxnfz.mongodb.net/amazon?retryWrites=true&w=majority";
 let db;
 
 app.use(cors());
