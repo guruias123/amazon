@@ -22,7 +22,7 @@ app.get('/', (req,res)=>{
 )
 
 app.get('/shirts', (req,res)=>{
-    db.collection('amazon').find({}).toArray((err,result)=>{
+    db.collection('shirts').find({}).toArray((err,result)=>{
             if(err) throw err;
             res.send(result)
     })
