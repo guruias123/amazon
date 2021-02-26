@@ -28,6 +28,24 @@ app.get('/shirts', (req,res)=>{
     })
 })
 
+app.get('/shirts/:id',(req,res) =>{
+  var id = req.params.id
+  db.collection('shirts').find({_id:id}).toArray((err,result) => {
+    if(err) throw err;
+    res.send(result)
+  })
+})
+/*app.get('/shirts', (req,res)=>{
+  var condition ={};
+  if(req.query._id){
+    condition={_id:req.query._id}
+  }
+  db.collection('shirts').find(condition).toArray((err,result)=>{
+    if(err) throw err;
+    res.send(result)
+  }) 
+})*/
+
 app.get('/pants', (req,res)=>{
     db.collection('pants').find({}).toArray((err,result)=>{
       if(err) throw err;
