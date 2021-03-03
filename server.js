@@ -53,6 +53,13 @@ app.get('/pants', (req,res)=>{
     })
 })
 
+app.get('/cart', (req,res)=>{
+  db.collection('cart').find({}).toArray((err,result)=>{
+          if(err) throw err;
+          res.send(result)
+  })
+})
+
 MongoClient.connect(mongourl,(err,connection) => {
     if(err) console.log(err);
     db = connection.db('amazon');
